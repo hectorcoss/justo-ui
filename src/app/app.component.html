@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <button mat-button *ngIf="isUserLogged" [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
+  <mat-menu #menu="matMenu">
+    <a routerLink="/user" *ngIf="canDisplayUsers" mat-menu-item>Hitmen</a>
+    <a routerLink="/hit" mat-menu-item>Hits</a>
+  </mat-menu>
+  <span>Hitmen</span>
+  <span class="example-spacer"></span>
+    <a routerLink="/login" *ngIf="!isUserLogged">
+      <button mat-icon-button class="example-icon favorite-icon">
+        <mat-icon>login</mat-icon>
+      </button>
+    </a>
+  <a href="#" *ngIf="isUserLogged">
+    <button mat-icon-button class="example-icon favorite-icon" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </a>
+</mat-toolbar>
+<router-outlet></router-outlet>

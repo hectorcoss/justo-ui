@@ -1,0 +1,20 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.login {
+  .container {
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .container div {
+    width: 400px;
+    //height: 500px;
+    display: grid;
+    //align-items: center;
+    //justify-content: center;
+    grid-row-gap: 5px;
+  }
+  .container div div {
+    //height: 40px;
+  }
+}

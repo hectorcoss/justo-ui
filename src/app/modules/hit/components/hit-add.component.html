@@ -1,0 +1,25 @@
+<div class="hit-add">
+  <h1 mat-dialog-title>New hit</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="hitForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Hitman</mat-label>
+        <mat-select formControlName="hitman">
+          <mat-option [value]="hitman.id" *ngFor="let hitman of hitmen">{{hitman.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Target</mat-label>
+        <input matInput formControlName="target">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description">
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" (click)="save()"><mat-icon>save</mat-icon></button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="" cdkFocusInitial><mat-icon>close</mat-icon></button>
+  </div>
+</div>

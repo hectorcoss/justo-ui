@@ -1,0 +1,37 @@
+<div class="hit-list">
+  <mat-grid-list cols="3" rowHeight="300px">
+    <mat-grid-tile *ngFor="let hit of hitList">
+      <mat-card class="mat-card-hit">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">
+            <img mat-card-avatar
+                 src="https://p.kindpng.com/picc/s/216-2168997_png-file-svg-gun-icon-android-gun-icon.png"
+                 alt=""/>
+          </div>
+          <mat-card-title><span>Target: </span>{{hit.target}}</mat-card-title>
+          <mat-card-subtitle><span>Assigned to: </span>{{hit.hitman}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div>
+            <span>Description: {{hit.description}}</span>
+          </div>
+          <div>
+            <span>Created by: {{hit.creator}}</span>
+          </div>
+          <div *ngIf="hit.status !== 'Assigned'">
+            <span>Status: {{hit.status}}</span>
+          </div>
+        </mat-card-content>
+        <mat-card-actions *ngIf="hit.status === 'Assigned'" align="end">
+          <button mat-raised-button color="primary" (click)="updateJobStatus(hit.id, 2)">Complete</button>
+          <button mat-raised-button color="warn" (click)="updateJobStatus(hit.id, 3)">Fail</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="button-container">
+    <button mat-fab color="primary" (click)="openHitModal()" *ngIf="userCanCreateHit">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
